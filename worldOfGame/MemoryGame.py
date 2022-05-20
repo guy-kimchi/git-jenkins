@@ -13,6 +13,7 @@ def get_list_from_user(level):
     print("enter the numbers that you saw (numer than click Enter and repet)")
     user_seq = []
     for i in range(level):
+        print("-------------------")
         user_seq.append(int(input()))
     return user_seq
 
