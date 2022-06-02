@@ -1,7 +1,10 @@
+from time import sleep
 
 import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
+from MainScores import score_server
+from Score import add_score
 
 
 def welcome(name):
@@ -35,16 +38,23 @@ def load_game():
                     print("Please choose game difficulty from 1 to 5:")
 
         if game == 1:
-            MemoryGame.play(level)
+            res = MemoryGame.play(level)
+            if res:
+                add_score(level)
             print("Press Enter to next round of game or 4 to Exit")
         elif game == 2:
-            GuessGame.play(level)
+            res = GuessGame.play(level)
+            if res:
+                add_score(level)
             print("Press Enter to next round of game or 4 to Exit")
         elif game == 3:
-            CurrencyRouletteGame.play(level)
+            res = CurrencyRouletteGame.play(level)
+            if res:
+                add_score(level)
             print("Press Enter to next round of game or 4 to Exit")
         elif game == 4:
             print("EXIT")
+            flag = False
             break
 
 

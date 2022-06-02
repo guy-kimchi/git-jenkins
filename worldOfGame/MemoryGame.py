@@ -1,5 +1,6 @@
 from random import randint
 from time import sleep
+from Utils import Screen_cleaner
 
 
 def generate_sequence(level):
@@ -22,8 +23,7 @@ def is_list_equal(level):
     a = generate_sequence(level)
     print(a)
     sleep(0.7)
-    for i in range(100):
-        print()
+    Screen_cleaner()
     b = get_list_from_user(level)
     if sorted(a) == sorted(b):
         return True
